@@ -32,7 +32,7 @@ const CardComponent = ({ sysUser, signal }) => {
   const age = sysUser.userAge.toNumber();
   const role = sysUser.userRole.toNumber();
   const userId = sysUser.userId.toNumber();
-  console.log(userId);
+  console.log(sysUser);
 
   const [size, setSize] = useState("md");
   const [adharsize, setAdharSize] = useState("md");
@@ -127,7 +127,9 @@ const CardComponent = ({ sysUser, signal }) => {
               </Stack>
 
               <Stack spacing={0} align={"center"}>
-                <Text fontWeight={600}>License No: {sysUser.licenseNum}</Text>
+                {role === 2 ? (
+                  <Text fontWeight={600}>License No: {sysUser[3]}</Text>
+                ) : null}
               </Stack>
               <Stack spacing={0} align={"center"}>
                 <Text fontWeight={600}>Age: {age}</Text>
